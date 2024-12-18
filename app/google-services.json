@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "648660880724",
+    "project_id": "pruebaweatherlatam",
+    "storage_bucket": "pruebaweatherlatam.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648660880724:android:3e18f53ef1e04459750cc1",
+        "android_client_info": {
+          "package_name": "com.example.pruebaweatherlatam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxz5s-6TqO97dMwEJrqLqVLtUGx99nQXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648660880724:android:ca8bf1a18f4e13aa750cc1",
+        "android_client_info": {
+          "package_name": "com.example.pruebaweatherlatam.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxz5s-6TqO97dMwEJrqLqVLtUGx99nQXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648660880724:android:782a9ae4d2ecc144750cc1",
+        "android_client_info": {
+          "package_name": "com.example.pruebaweatherlatam.qa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxz5s-6TqO97dMwEJrqLqVLtUGx99nQXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

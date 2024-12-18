@@ -1,0 +1,103 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services") // Plugin de Google Services
+    id("com.google.firebase.crashlytics") // Plugin de Firebase Crashlytics
+}
+
+android {
+    namespace 'com.example.pruebaweatherlatam'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.pruebaweatherlatam"
+        minSdk 34
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        dev {
+            storeFile file("C:/Users/gomez/Desktop/keydev.jks") // Cambia por la ruta de tu keystore
+            storePassword "dev123" // Contraseña del keystore
+            keyAlias "dev" // Alias de la clave
+            keyPassword "dev123" // Contraseña del alias
+        }
+        qa {
+            storeFile file("C:/Users/gomez/Desktop/keyqa.jks") // Cambia por la ruta de tu keystore
+            storePassword "qa1234" // Contraseña del keystore
+            keyAlias "qa" // Alias de la clave
+            keyPassword "qa1234" // Contraseña del alias
+        }
+        prod {
+            storeFile file("C:/Users/gomez/Desktop/keyprod.jks") // Cambia por la ruta de tu keystore
+            storePassword "prod123" // Contraseña del keystore
+            keyAlias "prod" // Alias de la clave
+            keyPassword "prod123" // Contraseña del alias
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // No minimizar para pruebas
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            buildConfigField "String", "BACKGROUND_COLOR", "\"#FFFFFF\"" // Fondo blanco
+            buildConfigField "String", "APP_ENV", "\"dev\""
+            signingConfig signingConfigs.dev
+        }
+        qa {
+            dimension "environment"
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+            buildConfigField "String", "BACKGROUND_COLOR", "\"#FFA500\"" // Fondo naranjo
+            buildConfigField "String", "APP_ENV", "\"qa\""
+            signingConfig signingConfigs.qa
+        }
+        prod {
+            dimension "environment"
+            buildConfigField "String", "BACKGROUND_COLOR", "\"#000000\"" // Fondo negro
+            buildConfigField "String", "APP_ENV", "\"prod\""
+            signingConfig signingConfigs.prod
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.crashlytics.ktx
+}
